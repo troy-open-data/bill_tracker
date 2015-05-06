@@ -11,10 +11,23 @@
     <title>Bill Tracker | Troy, NY</title>
 
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="vendor/stylesheets/anchor.css" />
     <link rel="stylesheet" type="text/css" href="stylesheets/main.css" />
   </head>
 
   <body>
+    <!-- Facebook JS SDK -->
+    <div id="fb-root"></div>
+    <script>
+      (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.3&appId=439320609561158";
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+    </script>
+
     <!-- Navbar -->
     <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container">
@@ -48,20 +61,26 @@
     </nav>
 
     <div class="container">
+      
       <!-- Bill Listing -->
-      <div id="bills" ng-controller="BillController as bills">
-        <div class="bill" ng-repeat="bill in bills.bills">
+      <div id="bills" ng-controller="BillController as billCtrl">
+        <div class="bill" ng-repeat="bill in billCtrl.bills">
           <!-- PDF -->
           <a class="pull-right btn btn-default" target="_blank" ng-href="{{ bill.pdf }}">
             Download PDF
           </a>
-          <h1>
+          <h1 id="{{ 'bill-' + bill.id }}">
             {{ bill.short_title }}
             <em class="small">{{ bill.legislation_type }} {{ bill.id }}</em>
           </h1>
           <p>{{ bill.body }}</p>
         </div>
       </div>
+
+      <!-- Facebook Comments -->
+      <div class="fb-comments" data-href="http://troy-open-data.github.io/bill_tracker"
+                               data-numposts="5"
+                               data-colorscheme="light"></div>
     </div>
 
     <!-- Core JavaScript
@@ -70,6 +89,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
     <!--<script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>-->
+
+    <!-- Anchor links -->
+    <script type="text/javascript" src="vendor/javascripts/anchor.min.js"></script>
 
     <!-- Angular -->
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>

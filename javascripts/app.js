@@ -27,4 +27,6 @@
       pdf: "https://legislative-twitter.herokuapp.com/bills/2.pdf"
     }
   ];
+
+  addAnchors();
 })();
