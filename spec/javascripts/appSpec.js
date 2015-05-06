@@ -22,4 +22,15 @@ describe('Jasmine', function() {
      var bill = createController('BillController');
      expect(bill).toBeDefined();
    });
+
+   describe('BillController', function() {
+     var bill;
+     beforeEach(inject(function($injector) {
+       bill = createController('BillController');
+     }));
+
+     it('should have bills', function() {
+       expect(bill.bills).toBeDefined();
+     });
+   });
 });

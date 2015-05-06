@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="bill">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,29 +15,7 @@
   </head>
 
   <body>
-    <!-- <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">Project name</a>
-        </div>
-        <div id="navbar" class="collapse navbar-collapse">
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
-        </div>--><!--/.nav-collapse -->
-      <!--</div>
-    </nav> -->
-
-
-
+    <!-- Navbar -->
     <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -68,22 +46,22 @@
         </div>
       </div>
     </nav>
+
     <div class="container">
-      <h1>Hello, World!</h1>
-      <p>
-        Felis magna class risus sem neque quam a porta. Felis justo sit velit.
-        Lorem etiam volutpat ve ullamcorper urna elit cubilia a suspendisse sit
-        eu curabitur. Neque donec velit metus mus sem elementum magnis a
-        faucibus orci eni justo risus amet dapibus. Etiam vitae congue primis
-        sodales. Vitae curae facilisi risus sollicitudin volutpat vitae donec
-        nullam neque. Neque proin cursus magna parturient condimentum sociis ut
-        pharetra quis commodo. Risus dolor magna orci viverra et ac leo
-        ullamcorper. Netus augue dolor a odio mi. Lorem purus dapibus amet et
-        vitae nulla lobortis dui pretium ipsum. Justo velit massa morbi mollis
-        rutrum. Neque purus cras a metus nonummy eni nisl conubia. Class neque
-        quisque id sagittis euismod nonummy sapien. Lacus fusce. Dolor justo
-        rutrum consectetuer cubilia. Augue felis.
-      </p>
+      <!-- Bill Listing -->
+      <div id="bills" ng-controller="BillController as bills">
+        <div class="bill" ng-repeat="bill in bills.bills">
+          <!-- PDF -->
+          <a class="pull-right btn btn-default" target="_blank" ng-href="{{ bill.pdf }}">
+            Download PDF
+          </a>
+          <h1>
+            {{ bill.short_title }}
+            <em class="small">{{ bill.legislation_type }} {{ bill.id }}</em>
+          </h1>
+          <p>{{ bill.body }}</p>
+        </div>
+      </div>
     </div>
 
     <!-- Core JavaScript
