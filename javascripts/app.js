@@ -4,13 +4,23 @@
 
   // Controllers
   app.controller('BillController', ['$http', function($http){
-    var bill = this;
-    bill.aBill = {};
+    var billCtrl = this;
+    billCtrl.bill = {};
 
     $http.get('http://troycitytracker.com/api/bills/15').success(function(data){
-      bill.aBill = data;
+      billCtrl.bill = data;
     })
   }]);
+
+  app.controller('TabController', function(){
+    this.tab = 0;
+    this.setTab = function(newTab) {
+      this.tab = newTab;
+    };
+    this.isSet = function(checkTab) {
+      return this.tab === checkTab;
+    };
+  });
 
   addAnchors();
 })();

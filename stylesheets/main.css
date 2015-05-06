@@ -2,6 +2,15 @@ body {
   padding-top: 50px;
 }
 
+h1 {
+  font-family: 'TradeGothic LT Bold', 'TradeGothic LT', Futura, Helvetica, Arial, sans-serif;
+}
+h2,h3,h4,h5,h6,blockquote {
+  font-family: 'TradeGothic LT', Futura, Helvetica, Arial, sans-serif;
+}
+
 .full-text{
   padding-top: 25px;
 }
+
+[ng\:cloak],[ng-cloak],.ng-cloak{display:none !important}

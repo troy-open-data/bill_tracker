@@ -22,15 +22,49 @@ describe('Jasmine', function() {
      var bill = createController('BillController');
      expect(bill).toBeDefined();
    });
+   it('should find TabController', function() {
+     var tab = createController('TabController');
+     expect(tab).toBeDefined();
+   });
 
+   // Controller tests
    describe('BillController', function() {
-     var bill;
+     var billCtrl;
      beforeEach(inject(function($injector) {
-       bill = createController('BillController');
+       billCtrl = createController('BillController');
      }));
 
-     it('should have bills', function() {
-       expect(bill.bills).toBeDefined();
+     it('should have bill', function() {
+       expect(billCtrl.bill).toBeDefined();
      });
+   });
+
+   describe('TabController', function() {
+     var tabCtrl;
+     beforeEach(inject(function($injector) {
+       tabCtrl = createController('TabController');
+     }));
+
+     it('should initialize tab to 0', function() {
+       expect(tabCtrl.tab).toEqual(0);
+     });
+
+     describe('setTab(n)', function() {
+       it('should set tab to n', function() {
+         tabCtrl.setTab(100);
+         expect(tabCtrl.tab).toEqual(100);
+       });
+     })
+     describe('isSet(n)', function() {
+       beforeEach(function() {
+         tabCtrl.setTab(5);
+       });
+       it('should return true if tab === n', function() {
+         expect(tabCtrl.isSet(5)).toBe(true);
+       });
+       it('should return false if tab !== n', function() {
+         expect(tabCtrl.isSet(10)).toBe(false);
+       });
+     })
    });
 });
