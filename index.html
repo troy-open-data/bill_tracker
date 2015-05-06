@@ -64,19 +64,21 @@
 
       <!-- Bill Information -->
       <div ng-controller="BillController as billCtrl">
-        <!-- Add to Cart -->
+        <!-- Download PDF -->
         <a class="pull-right btn btn-default" target="_blank"
            ng-href="{{ billCtrl.bill.pdf }}"
            ng-show="billCtrl.bill.pdf">
           Download PDF
         </a>
 
-        <h1 id="{{ 'bill-' + billCtrl.bill.id }}" ng-cloak>
+        <!-- Title -->
+        <h1 id="{{ 'bill-' + billCtrl.bill.id }}" ng-show="billCtrl.bill.id" ng-cloak>
           {{ billCtrl.bill.short_title }}
           <em class="small" ng-cloak>{{ billCtrl.bill.legislation_type }} {{ billCtrl.bill.id }}</em>
         </h1>
+        <h1 ng-hide="billCtrl.bill.id">No Bill Found</h1>
 
-        <blockquote ng-cloak>{{ billCtrl.bill.title | uppercase }}</blockquote>
+        <blockquote ng-show="billCtrl.bill.id" ng-cloak>{{ billCtrl.bill.title | uppercase }}</blockquote>
 
         <!-- Tabs -->
         <section ng-controller="TabController as tabCtrl">
@@ -92,7 +94,7 @@
           <!-- Full Text -->
           <div class="panel" ng-show="tabCtrl.isSet(0)">
             <!-- Preamble -->
-            <div class='panel full-text' ng-cloak>
+            <div class='panel full-text' ng-show="billCtrl.bill.id" ng-cloak>
               <h3 class='text-center' ng-show="billCtrl.bill.preamble.recitals.length">Preamble</h3>
               <h5 ng-repeat="recital in billCtrl.bill.preamble.recitals">
                 <strong>{{ recital.prefix }}</strong>
@@ -128,6 +130,7 @@
                 </li>
               </ol>
             </div>
+            <blockquote ng-hide="billCtrl.bill.main_content">Bill body not found</blockquote>
           </div>
 
             <!-- History -->
