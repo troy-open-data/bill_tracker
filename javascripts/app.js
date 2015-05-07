@@ -7,7 +7,7 @@
     var billCtrl = this;
     billCtrl.bill = {};
 
-    $http.get('http://troycitytracker.com/api/bills/15').success(function(data){
+    $http.get('http://api.troycitytracker.com/bills/15').success(function(data){
       billCtrl.bill = data;
     })
   }]);
