@@ -3,9 +3,9 @@
 describe('Navbar items', function() {
   beforeEach(module('btDirectives'));
 
-  var element, scope, httpBackend;
+  var element, scope;
 
-  beforeEach(inject(function(_$rootScope_, _$compile_, _$httpBackend_) {
+  beforeEach(inject(function(_$rootScope_, _$compile_) {
     element = angular.element('<div><bt-page-nav></bt-page-nav></div>');
     scope = _$rootScope_;
 
@@ -15,7 +15,7 @@ describe('Navbar items', function() {
 
   it('should have a single root', function() {
     expect(element.find('ul.navbar-nav').length).toEqual(1);
-  })
+  });
 
   it('should create a navbar list', function() {
     var navItems = element.find('ul.navbar-nav li');
@@ -59,7 +59,7 @@ describe('Navbar items', function() {
     });
 
     describe('on the root path /', function() {
-      beforeEach(function() {location.path('/')});
+      beforeEach(function() {location.path('/');});
 
       it('should return true if passed "root"', function() {
         expect(scope.isPage('root')).toBe(true);

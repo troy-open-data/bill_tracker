@@ -16,5 +16,9 @@ angular
     'ngRoute',
     'ngSanitize',
     'ngTouch',
+    'btControllers',
     'btDirectives'
   ]);
+
+angular.module('btControllers', []);
+angular.module('btDirectives', []);

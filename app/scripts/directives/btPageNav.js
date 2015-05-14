@@ -7,7 +7,7 @@
  * # btPageNav
  * Directive that controls navbar links and active class toggling
  */
-angular.module('btDirectives', [])
+angular.module('btDirectives')
   .directive('btPageNav', ['$location', function($location){
   return {
     controller: function($scope) {

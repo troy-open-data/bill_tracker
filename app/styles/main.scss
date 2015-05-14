@@ -89,3 +89,27 @@ body {
     border-bottom: 0;
   }
 }
+
+
+// Bill search bar
+input.search-query {
+  margin-top: 1em;
+  margin-bottom: .5em;
+  padding-left:2em;
+  font-size: 1.5em;
+  height: 150%;
+}
+form.form-search {
+  position: relative;
+}
+form.form-search:before {
+  display: block;
+  font-size: 1.5em;
+  content: "\e003";
+  font-family: 'Glyphicons Halflings';
+  position: absolute;
+  top:.5em;
+  left:.5em;
+  opacity: .5;
+  z-index: 1000;
+}
