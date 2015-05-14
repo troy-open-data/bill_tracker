@@ -20,10 +20,9 @@ angular.module('btDirectives')
       };
     },
     restrict: 'E',
-    template: 
+    template:
       '<ul class="bt-page-nav nav navbar-nav">' +
         '<li ng-class="{ \'active\':isPage(\'root\') }"><a href="#/">Home</a></li>' +
-        '<li ng-class="{ \'active\':isPage(\'about\') }"><a href="#/about">About</a></li>' +
         '<li ng-class="{ \'active\':isPage(\'bills\') }"><a href="#/bills">Bills</a></li>' +
       '</ul>',
     // templateUrl: 'views/directives/btPageNav.html', // TODO: set up testing for rendered templates

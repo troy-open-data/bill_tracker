@@ -23,14 +23,6 @@ describe('Route configuration', function() {
         expect(route.routes['/'].templateUrl).toBe('views/main.html');
       });
     });
-    describe('GET /about', function() {
-      it('should use AboutCtrl', function(){
-        expect(route.routes['/about'].controller).toBe('AboutCtrl');
-      });
-      it('should render from views/about.html', function() {
-        expect(route.routes['/about'].templateUrl).toBe('views/about.html');
-      });
-    });
   });
 
   describe('bill resources', function() {
