@@ -24,6 +24,14 @@ angular
         templateUrl: 'views/bills/show.html',
         controller: 'BillShowCtrl'
       })
+      .when('/people', {
+        templateUrl: 'views/people/index.html',
+        controller: 'PersonIndexCtrl'
+      })
+      .when('/people/:id', {
+        templateUrl: 'views/people/show.html',
+        controller: 'PersonShowCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });

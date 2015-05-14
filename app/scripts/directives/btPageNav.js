@@ -24,6 +24,7 @@ angular.module('btDirectives')
       '<ul class="bt-page-nav nav navbar-nav">' +
         '<li ng-class="{ \'active\':isPage(\'root\') }"><a href="#/">Home</a></li>' +
         '<li ng-class="{ \'active\':isPage(\'bills\') }"><a href="#/bills">Bills</a></li>' +
+        '<li ng-class="{ \'active\':isPage(\'people\') }"><a href="#/people">People</a></li>' +
       '</ul>',
     // templateUrl: 'views/directives/btPageNav.html', // TODO: set up testing for rendered templates
     replace: true

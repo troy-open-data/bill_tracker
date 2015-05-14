@@ -1,0 +1,27 @@
+<!-- Breadcrumbs -->
+<ol class="breadcrumb">
+  <li><a href="#/bills">People</a></li>
+  <li class="active">{{ person.first }} {{ person.last }}</li>
+</ol>
+
+<!-- Name and Bio -->
+<h1>{{ person.first }} {{ person.last }}</h1>
+<blockquote ng-if="person.bio">{{ person.bio }}</blockquote>
+
+<!-- Memberships -->
+<h3>Committee Memberships</h3>
+<ul>
+  <li ng-repeat="committee in person.memberships | orderBy:'name'"><a ng-href="#/committees/{{ committee.id }}">
+    {{ committee.name }}
+  </a></li>
+</ul>
+<blockquote ng-if="!person.memberships.length">No committee memberships</blockquote>
+
+<!-- Sponsorships -->
+<h3>Bill Sponsorships</h3>
+<ul>
+  <li ng-repeat="bill in person.sponsorships | orderBy:'name'"><a ng-href="#/bills/{{ bill.id }}">
+    {{ bill.short_title }}
+  </a></li>
+</ul>
+<blockquote ng-if="!person.sponsorships.length">No sponsored bills</blockquote>

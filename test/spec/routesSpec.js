@@ -44,4 +44,24 @@ describe('Route configuration', function() {
       });
     });
   });
+
+  describe('people resources', function() {
+    describe('GET /people', function() {
+      it('should use PersonIndexCtrl', function(){
+        expect(route.routes['/people'].controller).toBe('PersonIndexCtrl');
+      });
+      it('should render from views/people/index.html', function() {
+        expect(route.routes['/people'].templateUrl).toBe('views/people/index.html');
+      });
+    });
+
+    describe('GET /people/:id', function() {
+      it('should use PersonShowCtrl', function(){
+        expect(route.routes['/people/:id'].controller).toBe('PersonShowCtrl');
+      });
+      it('should render from views/people/show.html', function() {
+        expect(route.routes['/people/:id'].templateUrl).toBe('views/people/show.html');
+      });
+    });
+  });
 });
