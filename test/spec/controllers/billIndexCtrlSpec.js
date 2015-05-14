@@ -12,7 +12,7 @@ describe('Bill Controller: Index (BillIndexCtrl)', function() {
     });
   }));
 
-  describe('#all', function() {
+  describe('GET bills#all', function() {
     var httpBackend, mockBills, hostUrl;
 
     beforeEach(inject(function(_$httpBackend_) {

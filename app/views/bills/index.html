@@ -1,19 +1,14 @@
 <h1>Listing Bills</h1>
 
-<!--<ul class="list-group">-->
-  <!--<li class="list-group-item" ng-repeat="bill in bills">-->
-    <!--<span class="badge">{{ bill.legislation_type }}</span>-->
-    <!--{{ bill.short_title }}-->
-  <!--</li>-->
-<!--</ul>-->
-
+<!-- Search Bills -->
 <form class="form-search">
   <input type="text" class="form-control search-query" placeholder="Search bills" ng-model="search.input.$" />
 </form>
 
-<div class="panel panel-default" ng-repeat="bill in bills | filter:search.input">
+<!-- Bill Listing -->
+<div class="panel panel-default" ng-repeat="bill in bills | orderBy:'-id' | filter:search.input">
   <div class="panel-heading">
-    <h3 class="panel-title"><a ng-href="/bills/{{ bill.id }}">{{ bill.short_title }}</a>
+    <h3 class="panel-title"><a ng-href="#/bills/{{ bill.id }}">{{ bill.short_title }}</a>
       <span class="pull-right badge">{{ bill.legislation_type }}</span>
     </h3>
   </div>

@@ -42,5 +42,14 @@ describe('Route configuration', function() {
         expect(route.routes['/bills'].templateUrl).toBe('views/bills/index.html');
       });
     });
+
+    describe('GET /bills/:id', function() {
+      it('should use BillShowCtrl', function(){
+        expect(route.routes['/bills/:id'].controller).toBe('BillShowCtrl');
+      });
+      it('should render from views/bills/show.html', function() {
+        expect(route.routes['/bills/:id'].templateUrl).toBe('views/bills/show.html');
+      });
+    });
   });
 });
