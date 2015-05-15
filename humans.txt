@@ -1,0 +1,25 @@
+/**
+ * Humans.txt is an initiative to reveal the people behind a website in a
+ * non-intrusive way. 
+ *
+ * For more information, visit http://humanstxt.org
+ */
+
+/* TEAM */
+
+Developer: Lee Sharma.      
+Site: leesharma.com.
+From: Greater DC Area, USA.
+
+
+/* THANKS */
+
+Name: Troy City Council
+
+
+/* SITE */
+
+Last update: {{ under active development }}
+Components: jQuery, Angular.js, Bootstrap, HTML5 Boilerplate, Node.js
+Supporting Tech: Yeoman, Karma, Prototype, Jasmine, Grunt, Heroku, Git
+Software: Sublime Text, Git

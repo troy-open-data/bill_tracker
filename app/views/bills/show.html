@@ -1,0 +1,86 @@
+<!-- Breadcrumbs -->
+<ol class="breadcrumb">
+  <li><a href="#/bills">Bills</a></li>
+  <li class="active">{{ bill.legislation_type }} {{ bill.id }}</li>
+</ol>
+
+<!-- Download PDF -->
+<a class="pull-right btn btn-default" target="_blank"
+   ng-href="{{ bill.pdf }}"
+   ng-show="bill.pdf">
+  Download PDF
+</a>
+
+<!-- Title -->
+<h1 id="{{ 'bill-' + bill.id }}" ng-show="bill.id" ng-cloak>
+  {{ bill.short_title }}
+  <em class="small" ng-cloak>{{ bill.legislation_type }} {{ bill.id }}</em>
+</h1>
+<h1 ng-hide="bill.id">No Bill Found</h1>
+
+<blockquote ng-show="bill.id" ng-cloak>{{ bill.title }}</blockquote>
+
+<!-- Tabs -->
+<!--<section ng-controller="TabController as tabCtrl">-->
+  <!--<ul class="nav nav-tabs">-->
+    <!--<li role="presentation" ng-class="{ active:tabCtrl.isSet(0) }">-->
+      <!--<a href ng-click="tabCtrl.setTab(0)">Full Text</a>-->
+    <!--</li>-->
+    <!--<li role="presentation" ng-class="{ active:tabCtrl.isSet(1) }">-->
+      <!--<a href ng-click="tabCtrl.setTab(1)">History</a>-->
+    <!--</li>-->
+  <!--</ul>-->
+
+  <!-- Full Text -->
+  <!--<div class="panel" ng-show="tabCtrl.isSet(0)">-->
+    <!-- Preamble -->
+    <div class='panel full-text' ng-show="bill.id" ng-cloak>
+      <h3 class='text-center' ng-show="bill.preamble.recitals.length">Preamble</h3>
+      <h5 ng-repeat="recital in bill.preamble.recitals">
+        <strong>{{ recital.prefix }}</strong>
+        {{ recital.clause }}
+      </h5>
+      <h4 id='enacting-formula' class='text-center'><strong>{{ bill.preamble.enacting_formula | uppercase }}</strong></h4>
+
+      <ol>
+        <li ng-repeat="section in bill.main_content.sections">
+          <h4 id="{{ 'section-' + ($index + 1) }}">{{ section.heading }} <small>{{ section.subheading }}</small></h4>
+          <p ng-hide="section.sub_sections.length">{{ section.body }}</p>
+          <ol ng-show="section.sub_sections.length">
+            <p>{{ section.chapeau }}</p>
+            <li ng-repeat="subsection in section.sub_sections">
+              <p ng-hide="subsection.paragraphs.length">{{ subsection.body }}</p>
+              <p ng-show="subsection.paragraphs.length">{{ subsection.chapeau }}</p>
+              <ol ng-show="subsection.paragraphs.length">
+                <li ng-repeat="paragraph in subsection.paragraphs">
+                  <p ng-hide="paragraph.subparagraphs.length">{{ paragraph.body }}</p>
+                  <ol ng-show="paragraph.subparagraphs.length">
+                    <p>{{ paragraph.chapeau }}</p>
+                    <li ng-repeat="subparagraph in paragraph.subparagraphs">
+                      <p>{{ subparagraph.body }}</p>
+                    </li>
+                    <p>{{ paragraph.continuation }}</p>
+                  </ol>
+                </li>
+                <p>{{ subsection.continuation }}</p>
+              </ol>
+            </li>
+            <p>{{ section.continuation }}</p>
+          </ol>
+        </li>
+      </ol>
+    </div>
+    <blockquote ng-hide="bill.main_content">Bill body not found</blockquote>
+  <!--</div>-->
+
+  <!-- History -->
+  <!--<div class="panel" ng-show="tabCtrl.isSet(1)">-->
+    <!--<h2>Bill History</h2>-->
+    <!--<blockquote>none recorded</blockquote>-->
+    <!--<h3>Sponsoring Members</h3>-->
+    <!--<blockquote>none recorded</blockquote>-->
+    <!--<h3>Votes</h3>-->
+    <!--<blockquote>none recorded</blockquote>-->
+  <!--</div>-->
+
+<!--</section>-->

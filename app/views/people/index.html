@@ -1,0 +1,24 @@
+<!-- Breadcrumbs -->
+<ol class="breadcrumb">
+  <li class="active">People</li>
+</ol>
+
+<h1>Listing People</h1>
+
+<!-- Person Listing -->
+<div class="row">
+  <div ng-repeat="person in people | orderBy:'last'" class="col-sm-6">
+    <div class="panel panel-default media">
+      <div class="media-left">
+        <a ng-href="#/people/{{ person.id }}">
+          <img ng-src="http://placehold.it/75x75&text={{ person.first[0] }}{{ person.last[0] }}" />
+        </a>
+      </div>
+      <div class="media-body panel-body">
+        <h4 class="media-heading"><a ng-href="#/people/{{ person.id }}">{{ person.first }} {{ person.last }}</a>
+          <!--<small>...</small>-->
+        </h4>
+      </div>
+    </div>
+  </div>
+</div>
