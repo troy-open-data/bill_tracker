@@ -32,6 +32,14 @@ angular
         templateUrl: 'views/people/show.html',
         controller: 'PersonShowCtrl'
       })
+      .when('/committees', {
+        templateUrl: 'views/committees/index.html',
+        controller: 'CommitteeIndexCtrl'
+      })
+      .when('/committees/:id', {
+        templateUrl: 'views/committees/show.html',
+        controller: 'CommitteeShowCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });

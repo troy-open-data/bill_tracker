@@ -1,0 +1,25 @@
+<!-- Breadcrumbs -->
+<ol class="breadcrumb">
+  <li><a href="#/committees">Committees</a></li>
+  <li class="active">{{ committee.name }}</li>
+</ol>
+
+<!-- Name -->
+<h1>{{ committee.name }}</h1>
+<blockquote ng-if="committee.description">{{ committee.description }}</blockquote>
+
+<h3>Committee Members</h3>
+<ul>
+  <li ng-repeat="member in committee.members | orderBy:'last'">
+    <a ng-href="#/people/{{ member.id }}">{{ member.first }} {{ member.last }}</a>
+  </li>
+</ul>
+<blockquote ng-if="!committee.members.length">No current members</blockquote>
+
+<h3>Upcoming Meetings</h3>
+<ul>
+  <li ng-repeat="meeting in committee.meetings | orderBy:'date_and_time'"><a ng-href="#/meetings/{{ meeting.id }}">
+    {{ meeting.date_and_time }}
+  </a></li>
+</ul>
+<blockquote ng-if="!committee.meetings.length">No available meetings</blockquote>

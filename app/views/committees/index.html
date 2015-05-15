@@ -1,0 +1,13 @@
+<!-- Breadcrumbs -->
+<ol class="breadcrumb">
+  <li class="active">Committees</li>
+</ol>
+
+<h1>Listing Committees</h1>
+
+<!-- Committee Listing -->
+<ul>
+  <li ng-repeat="committee in committees | orderBy:'level'"><a ng-href="#/committees/{{ committee.id }}">
+    {{ committee.name }}
+  </a></li>
+</ul>

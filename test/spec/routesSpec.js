@@ -64,4 +64,24 @@ describe('Route configuration', function() {
       });
     });
   });
+
+  describe('committees resources', function() {
+    describe('GET /committees', function() {
+      it('should use CommitteeIndexCtrl', function(){
+        expect(route.routes['/committees'].controller).toBe('CommitteeIndexCtrl');
+      });
+      it('should render from views/committees/index.html', function() {
+        expect(route.routes['/committees'].templateUrl).toBe('views/committees/index.html');
+      });
+    });
+
+    describe('GET /committees/:id', function() {
+      it('should use CommitteeShowCtrl', function(){
+        expect(route.routes['/committees/:id'].controller).toBe('CommitteeShowCtrl');
+      });
+      it('should render from views/committees/show.html', function() {
+        expect(route.routes['/committees/:id'].templateUrl).toBe('views/committees/show.html');
+      });
+    });
+  });
 });
