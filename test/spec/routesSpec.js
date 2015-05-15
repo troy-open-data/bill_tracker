@@ -84,4 +84,24 @@ describe('Route configuration', function() {
       });
     });
   });
+
+  describe('meetings resources', function() {
+    describe('GET /meetings', function() {
+      it('should use MeetingIndexCtrl', function(){
+        expect(route.routes['/meetings'].controller).toBe('MeetingIndexCtrl');
+      });
+      it('should render from views/meetings/index.html', function() {
+        expect(route.routes['/meetings'].templateUrl).toBe('views/meetings/index.html');
+      });
+    });
+
+    describe('GET /meetings/:id', function() {
+      it('should use MeetingShowCtrl', function(){
+        expect(route.routes['/meetings/:id'].controller).toBe('MeetingShowCtrl');
+      });
+      it('should render from views/meetings/show.html', function() {
+        expect(route.routes['/meetings/:id'].templateUrl).toBe('views/meetings/show.html');
+      });
+    });
+  });
 });

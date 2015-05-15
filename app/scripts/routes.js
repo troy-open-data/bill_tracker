@@ -40,6 +40,14 @@ angular
         templateUrl: 'views/committees/show.html',
         controller: 'CommitteeShowCtrl'
       })
+      .when('/meetings', {
+        templateUrl: 'views/meetings/index.html',
+        controller: 'MeetingIndexCtrl'
+      })
+      .when('/meetings/:id', {
+        templateUrl: 'views/meetings/show.html',
+        controller: 'MeetingShowCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });

@@ -1,0 +1,13 @@
+<!-- Breadcrumbs -->
+<ol class="breadcrumb">
+  <li class="active">Meetings</li>
+</ol>
+
+<h1>Listing Meetings</h1>
+
+<!-- Committee Listing -->
+<ul>
+  <li ng-repeat="meeting in meetings | orderBy:'date_and_time'"><a ng-href="#/meetings/{{ meeting.id }}">
+    {{ meeting.name }}
+  </a></li>
+</ul>
