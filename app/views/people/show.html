@@ -21,7 +21,7 @@
 <h3>Bill Sponsorships</h3>
 <ul>
   <li ng-repeat="bill in person.sponsorships | orderBy:'name'"><a ng-href="#/bills/{{ bill.id }}">
-    {{ bill.short_title }}
+    {{ bill.legislation_type }} {{ bill.position }}: {{ bill.short_title }}
   </a></li>
 </ul>
 <blockquote ng-if="!person.sponsorships.length">No sponsored bills</blockquote>

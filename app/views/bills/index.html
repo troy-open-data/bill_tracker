@@ -14,7 +14,7 @@
 <div class="panel panel-default" ng-repeat="bill in bills | orderBy:'-id' | filter:search.input">
   <div class="panel-heading">
     <h3 class="panel-title"><a ng-href="#/bills/{{ bill.id }}">{{ bill.short_title }}</a>
-      <span class="pull-right badge">{{ bill.legislation_type }}</span>
+      <span class="pull-right badge">{{ bill.legislation_type }} {{ bill.position }}</span>
     </h3>
   </div>
   <div class="panel-body">

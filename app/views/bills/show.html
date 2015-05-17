@@ -1,7 +1,7 @@
 <!-- Breadcrumbs -->
 <ol class="breadcrumb">
   <li><a href="#/bills">Bills</a></li>
-  <li class="active">{{ bill.legislation_type }} {{ bill.id }}</li>
+  <li class="active">{{ bill.legislation_type }} {{ bill.position }}</li>
 </ol>
 
 <!-- Download PDF -->
@@ -14,7 +14,7 @@
 <!-- Title -->
 <h1 id="{{ 'bill-' + bill.id }}" ng-show="bill.id" ng-cloak>
   {{ bill.short_title }}
-  <em class="small" ng-cloak>{{ bill.legislation_type }} {{ bill.id }}</em>
+  <em class="small" ng-cloak>{{ bill.legislation_type }} {{ bill.position }}</em>
 </h1>
 <h1 ng-hide="bill.id">No Bill Found</h1>
 

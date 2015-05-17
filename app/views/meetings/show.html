@@ -37,6 +37,6 @@
 <h4>Bill Docket</h4>
 <ul>
   <li ng-repeat="bill in meeting.bills | orderBy:'id'"><a ng-href="#/bills/{{ bill.id }}">
-    #{{ bill.id }}: {{ bill.short_title }}
+    {{ bill.legislation_type }} {{ bill.position }}: {{ bill.short_title }}
   </a></li>
 </ul>
